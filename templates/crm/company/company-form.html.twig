@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+	<div class="container-fluid">
+		<div class="row mb-3">
+			<div class="col-6 d-flex">
+				<a class="btn btn-info mr-3" href="{{ path('bitrix_company_list') }}">Voltar</a>
+				<h4>Nova Empresa</h4>
+			</div>
+		</div>
+
+		{{ form_start(form) }}
+		<div class="my-custom-class-for-errors">
+			{{ form_errors(form) }}
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				{{ form_row(form.TITLE) }}
+			</div>
+			<div class="col-sm-6">
+				{{ form_row(form.COMPANY_TYPE) }}
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-4">
+				{{ form_row(form.REVENUE) }}
+			</div>
+			<div class="col-sm-4">
+				{{ form_row(form.CURRENCY_ID) }}
+			</div>
+			<div class="col-sm-4">
+				{{ form_row(form.INDUSTRY) }}
+			</div>
+		</div>
+
+		{{ form_end(form) }}
+	</div>
+
+{% endblock %}

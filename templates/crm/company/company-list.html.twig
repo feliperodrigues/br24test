@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<div class="container-fluid">
+		<div class="row mb-3">
+			<div class="col-6">
+				<h4>Lista de Empresas</h4>
+			</div>
+			<div class="col-6 text-right">
+				<a class="btn btn-success" href="{{ path('bitrix_company_new') }}">Nova Empresa</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<table class="table">
+					<thead>
+					<tr>
+						<th scope="col">Empresa</th>
+						<th scope="col">Responsável</th>
+						<th scope="col">Criado em</th>
+					</tr>
+					</thead>
+					<tbody>
+					{% for company in companyList %}
+						<tr>
+							<th>{{ company.TITLE }}</th>
+							<td>{{ company.ASSIGNED_BY_ID }}</td>
+							<td>{{ company.DATE_CREATE | date('d/m/Y') }}</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
